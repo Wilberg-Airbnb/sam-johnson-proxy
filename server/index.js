@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 app.use(express.static(__dirname + '../public/index.html'));
 app.use(express.json());
@@ -7,7 +8,8 @@ app.use(express.json());
 app.get('/:listingId', (req, res) => {
   console.log('GET')
   console.log('path: ', req.path)
-  res.send(`listing item ${req.path.slice(1)}`);
+  const listingPage = path.join(__dirname, '../public/index.html')
+  res.sendFile(listingPage);
 })
 
 
