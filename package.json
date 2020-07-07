@@ -7,9 +7,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "test": "jest",
     "start": "nodemon server/server.js"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
