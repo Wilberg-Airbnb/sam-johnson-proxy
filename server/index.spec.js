@@ -13,4 +13,12 @@ describe('/:listingId', () => {
     done()
   })
 
+  it('should return a 404 error for any pages not at listingId 0-99', async (done) => {
+
+    const res = await request.get('/100/');
+    expect(res.status).toBe(404);
+
+    done()
+  })
+
 })
