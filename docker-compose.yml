@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+
+  sam-proxy:
+    restart: on-failure
+    build: ./
+    working_dir: /Users/samjohnson/Documents/hrfiles/airbrb/proxy
+    ports:
+      - "80:8888"
+    command: bash -c "npm install && npm run start"
+    volumes:
+      - ./:/Users/samjohnson/Documents/hrfiles/airbrb/proxy
