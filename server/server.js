@@ -5,8 +5,7 @@ app.listen(8888, () => {
 })
 
 app.get('/api/reservation/:listingId', (req, res) => {
-  console.log(req.params.listingId)
-  res.redirect(`http://ec2-52-14-154-112.us-east-2.compute.amazonaws.com/api/reservation/${req.params.listingId}`)
+  res.redirect(`http://3.19.16.18/api/reservation/${req.params.listingId}`)
 })
 
 app.get('/api/location/:listingId', (req, res) => {
@@ -23,4 +22,10 @@ app.get('/api/description/:listingId', (req, res) => {
 
 app.get('/api/suggestions/:listingId', (req, res) => {
   res.redirect(`http://ec2-3-129-14-177.us-east-2.compute.amazonaws.com:8081/api/suggestions/${req.params.listingId}`)
+})
+
+app.get('/api/reviews/:listingId', (req, res) => {
+  console.log('reviews')
+  if (req.query.type === 'review') {res.redirect(`http://ec2-3-129-14-177.us-east-2.compute.amazonaws.com:8080/api/reviews/${req.params.listingId}?type=review`)}
+  res.redirect(`http://ec2-3-129-14-177.us-east-2.compute.amazonaws.com:8080/api/reviews/${req.params.listingId}`)
 })
